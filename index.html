@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-  </head>
-  <body>
+</head>
+
+<body>
     <canvas id="gameCanvas" width="300" height="300">&lt;canvas>
-  </body>
+        <style>
+            #gameCanvas {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+      
+            #score {
+              text-align: center;
+              font-size: 140px;
+              font-family: 'Antic Slab', serif;
+            }
+          </style>
+</body>
+<script>
+    let snake = [{ x: 150, y: 150 },
+                 { x: 140, y: 150 }, 
+                 { x: 130, y: 150 },
+                  { x: 120, y: 150 }, 
+                  { x: 110, y: 150 },];
+
+    function drawSnakePart(snakePart) {  ctx.fillStyle = 'lightgreen';  ctx.strokestyle = 'darkgreen';ctx.fillRect(snakePart.x, snakePart.y, 10, 10);  ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);}
+    function drawSnake() {  snake.forEach(drawSnakePart);}
+</script>
+
 </html>
