@@ -44,6 +44,13 @@
 // Draw snake on the canvasdrawSnake();
 function clearCanvas() {  ctx.fillStyle = "white";  ctx.strokeStyle = "black";
   ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);  ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);}
+  clearCanvas();advanceSnake();advanceSnake();advanceSnake();advanceSnake();advanceSnake();drawSnake();
+  setTimeout(function onTick() {  clearCanvas();  advanceSnake();  drawSnake();}, 100);
+setTimeout(function onTick() {  clearCanvas();  advanceSnake();  drawSnake();}, 100);
+
+drawSnake();
+stepOne();    function stepOne() {  setTimeout(function onTick() {    clearCanvas();    advanceSnake();    drawSnake();   // Call the second function   stepTwo();  }, 100)}
+function stepTwo() {  setTimeout(function onTick() {    clearCanvas();    advanceSnake();    drawSnake();    // Call the third function    stepThree();  }, 100)}
 </script>
 
 </html>
