@@ -50,7 +50,15 @@ setTimeout(function onTick() {  clearCanvas();  advanceSnake();  drawSnake();}, 
 
 drawSnake();
 stepOne();    function stepOne() {  setTimeout(function onTick() {    clearCanvas();    advanceSnake();    drawSnake();   // Call the second function   stepTwo();  }, 100)}
+function stepTwo() {  setTimeout(function onTick() {    clearCanvas();    advanceSnake();    drawSnake();     
+  //Call the third function   
+   stepThree();  }, 100)}
+   stepOne();    function stepOne() {  setTimeout(function onTick() {    clearCanvas();    advanceSnake();    drawSnake();   // Call the second function   stepTwo();  }, 100)}
 function stepTwo() {  setTimeout(function onTick() {    clearCanvas();    advanceSnake();    drawSnake();    // Call the third function    stepThree();  }, 100)}
+
+  function main() {  setTimeout(function onTick() {    clearCanvas();    advanceSnake();    drawSnake();
+     //Call main again  
+       main();  }, 100)}
 </script>
 
 </html>
