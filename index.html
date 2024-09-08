@@ -66,6 +66,20 @@ function stepTwo() {  setTimeout(function onTick() {    clearCanvas();    advanc
   if (keyPressed === UP_KEY && !goingDown) {    dx = 0;    dy = -10;  }
   if (keyPressed === RIGHT_KEY && !goingLeft) {    dx = 10;    dy = 0;  }
   if (keyPressed === DOWN_KEY && !goingDown) {    dx = 0;    dy = 10;  }}
+
+  document.addEventListener("keydown", changeDirection)
+
+  function randomTen(min, max) {  return Math.round((Math.random() * (max-min) + min) / 10) * 10;}
+function createFood() {  foodX = randomTen(0, gameCanvas.width - 10);  foodY = randomTen(0, gameCanvas.height - 10);
+  
+  snake.forEach(function isFoodOnSnake(part) {    const foodIsOnSnake = part.x == foodX && part.y == foodY    if (foodIsOnSnake)      createFood();  });}
+//We then have to create a function to draw the food on the canvas.
+
+function drawFood() { ctx.fillStyle = 'red'; ctx.strokestyle = 'darkred'; ctx.fillRect(foodX, foodY, 10, 10); ctx.strokeRect(foodX, foodY, 10, 10);}
+//Finally we can call createFood before calling main. Don’t forget to also update main to use the drawFood function.
+
+function main() {  setTimeout(function onTick() {    clearCanvas();    drawFood()    advanceSnake();    drawSnake();
+    main();  }, 100)}
 </script>
 
 </html>
