@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <canvas id="gameCanvas" width="300" height="300">&lt;canvas>
+  <div id="score">0</div><canvas id="gameCanvas" width="300" height="300"></canvas>
         <style>
             #gameCanvas {
               position: absolute;
@@ -80,6 +80,9 @@ function drawFood() { ctx.fillStyle = 'red'; ctx.strokestyle = 'darkred'; ctx.fi
 
 function main() {  setTimeout(function onTick() {    clearCanvas();    drawFood()    advanceSnake();    drawSnake();
     main();  }, 100)}
+
+    let score = 0;
+
 </script>
 
 </html>
